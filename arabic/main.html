@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arabic Character Recognition</title>
+</head>
+<body>
+    <h1>Upload an Image for Arabic Character Recognition</h1>
+    <input type="file" id="imageUpload" accept="image/*">
+    <button id="submitBtn">Submit</button>
+    <p id="predictionResult"></p>
+
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', async function() {
+            var imageInput = document.getElementById('imageUpload');
+            if(imageInput.files.length == 0) {
+                alert('Please select an image file.');
+                return;
+            }
+
+            var file = imageInput.files[0];
+            var formData = new FormData();
+            formData.append("file", file);
+
+            try {
+                const response = await fetch('http://localhost:8000/predict/', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                document.getElementById('predictionResult').innerText = 'Predicted Label: ' + result.character;
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error sending image to server.');
+            }
+        });
+    </script>
+</body>
+</html>
