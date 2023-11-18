@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devanagari Character Recognition</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #exampleImages img {
+            cursor: pointer;
+            margin: 10px;
+            max-width: 100px; /* Adjust the size of images as needed */
+        }
+        #uploadForm {
+            margin: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload an Image for Devanagari Character Recognition</h1>
+    
+    <input type="file" id="imageUpload" class="hidden" accept="image/*">
+    <button onclick="document.getElementById('imageUpload').click()">Choose File</button>
+    <button id="submitBtn">Submit</button>
+    
+    <div id="exampleImages">
+        <img src="NA.jpg" alt="Example Image 1">
+        <img src="E.jpg" alt="Example Image 2">
+        <img src="devan.jpg" alt="Example Image 3">
+    </div>
+    
+    <p>Predicted Character: <span id="predictionResult"></span></p>
+
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            var imageInput = document.getElementById('imageUpload');
+            if(imageInput.files.length == 0) {
+                alert('Please select an image file.');
+                return;
+            }
+            var file = imageInput.files[0];
+            uploadImage(file);
+        });
+
+        document.querySelectorAll('#exampleImages img').forEach(function(img) {
+            img.addEventListener('click', function() {
+                uploadImageFromPath(this.src);
+            });
+        });
+
+        function uploadImageFromPath(imageSrc) {
+            fetch(imageSrc)
+                .then(response => response.blob())
+                .then(blob => uploadImage(blob))
+                .catch(error => console.error('Error fetching the image:', error));
+        }
+
+        function uploadImage(blobOrFile) {
+            var formData = new FormData();
+            formData.append("file", blobOrFile, 'upload.jpg'); // 'upload.jpg' is a placeholder name for the image
+
+            fetch('http://localhost:8000/predict/', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('predictionResult').textContent = data.character;
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+                document.getElementById('predictionResult').textContent = 'Error: ' + error.message;
+            });
+        }
+    </script>
+</body>
+</html>

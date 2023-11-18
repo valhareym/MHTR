@@ -9,34 +9,57 @@
     <button id="submitBtn">Submit</button>
     <p id="predictionResult"></p>
 
+    <!-- Example Images -->
+    <div id="exampleImages">
+        <img src="arabic1.jpg" class="example-image" alt="Example 1">
+        <img src="arabic2.jpg" class="example-image" alt="Example 2">
+        <img src="arabic3.png" class="example-image" alt="Example 3">
+    </div>
+
     <script>
-        document.getElementById('submitBtn').addEventListener('click', async function() {
-            var imageInput = document.getElementById('imageUpload');
-            if(imageInput.files.length == 0) {
-                alert('Please select an image file.');
-                return;
-            }
-
-            var file = imageInput.files[0];
+        // Function to handle image selection and upload
+        async function uploadImage(blob, fileName) {
             var formData = new FormData();
-            formData.append("file", file);
-
+            formData.append("file", blob, fileName);
+    
             try {
                 const response = await fetch('http://localhost:8000/predict/', {
                     method: 'POST',
                     body: formData
                 });
-
+    
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-
+    
                 const result = await response.json();
                 document.getElementById('predictionResult').innerText = 'Predicted Label: ' + result.character;
             } catch (error) {
                 console.error('Error:', error);
                 alert('Error sending image to server.');
             }
+        }
+    
+        // Handle file input upload
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            var imageInput = document.getElementById('imageUpload');
+            if(imageInput.files.length == 0) {
+                alert('Please select an image file.');
+                return;
+            }
+            uploadImage(imageInput.files[0], imageInput.files[0].name);
+        });
+    
+        // Handle clicks on example images
+        document.querySelectorAll('.example-image').forEach(image => {
+            image.addEventListener('click', function() {
+                fetch(image.src)
+                    .then(res => res.blob())
+                    .then(blob => {
+                        const fileName = image.src.split('/').pop(); // Extract filename from URL
+                        uploadImage(blob, fileName);
+                    });
+            });
         });
     </script>
 </body>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image to Text Prediction</title>
+</head>
+<body>
+    <h1>Upload an Image</h1>
+    <input type="file" id="fileInput" accept="image/*">
+    <button onclick="uploadAndPredict()">Upload and Predict</button>
+    <p id="predictionResult"></p>
+
+    <script>
+        async function uploadAndPredict() {
+            const input = document.getElementById('fileInput');
+            const file = input.files[0];
+            const formData = new FormData();
+            formData.append('file', file);
+
+            const response = await fetch('http://localhost:8000/predict/', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            document.getElementById('predictionResult').innerText = 'Prediction: ' + result.prediction;
+        }
+    </script>
+</body>
+</html>

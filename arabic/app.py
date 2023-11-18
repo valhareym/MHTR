@@ -1,3 +1,12 @@
+'''
+
+API inference for Arabic  HTR
+
+
+'''
+
+
+
 from fastapi import FastAPI, File, UploadFile
 from pydantic import BaseModel
 from tensorflow.keras.models import load_model

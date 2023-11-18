@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Recognition</title>
+    <style>
+        #exampleImages img {
+            cursor: pointer;
+            margin: 10px;
+            max-width: 100px; /* Adjust the size of images as needed */
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload an Image for Character Recognition</h1>
+    
+    <!-- Hidden file input for triggering via images -->
+    <input type="file" id="imageUpload" class="hidden" accept="image/*">
+    
+    <!-- Upload button -->
+    <button onclick="document.getElementById('imageUpload').click()">Choose File</button>
+    <button id="submitBtn">Submit</button>
+    
+    <!-- Example images -->
+    <div id="exampleImages">
+        <img src="Aiii.jpg" alt="Example Image 1">
+        <img src="Aloo.jpg" alt="Example Image 2">
+        <img src="BAA.jpg" alt="Example Image 3">
+    </div>
+    
+    <!-- Prediction result -->
+    <p>Predicted Character: <span id="predictionResult"></span></p>
+
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            var imageInput = document.getElementById('imageUpload');
+            if (imageInput.files.length > 0) {
+                var file = imageInput.files[0];
+                uploadImage(file);
+            } else {
+                alert('Please select an image file.');
+            }
+        });
+
+        document.querySelectorAll('#exampleImages img').forEach(function(img) {
+            img.addEventListener('click', function() {
+                fetch(this.src)
+                    .then(res => res.blob())
+                    .then(blob => {
+                        uploadImage(blob);
+                    });
+            });
+        });
+
+        function uploadImage(blobOrFile) {
+            var formData = new FormData();
+            formData.append("file", blobOrFile, 'upload.jpg'); // 'upload.jpg' is a placeholder name for the image
+
+            fetch('http://localhost:8000/predict/', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('predictionResult').textContent = data.class_name;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('predictionResult').textContent = 'Error: ' + error.message;
+            });
+        }
+    </script>
+</body>
+</html>
