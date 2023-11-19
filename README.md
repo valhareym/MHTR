@@ -143,9 +143,9 @@ Email: valhareym@gmail.com
 
 ScribbleSense is crafted by a dedicated team of developers:
 
-* Varanasi Aditya Sai
-* Shreyas S
-* Deep Chakraborty
+* [Aditya Varanasi](https://github.com/fvaysh)
+* [Shreyas S](https://github.com/Zhreyu)
+* [Deep Chakraborty](https://github.com/devdeep2003)
 
 
 # Contributing to ScribbleSense
