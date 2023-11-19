@@ -183,10 +183,8 @@ Thank you for considering contributing to ScribbleSense! We welcome contribution
 We appreciate your effort to contribute to ScribbleSense! Together, let's make handwriting recognition accessible and powerful for everyone.
 
 
-# License
+# MIT License
 ScribbleSense is distributed under the MIT License. This means you are free to use, modify, and distribute the software, provided you include the original copyright and license notice in any copy of the software or substantial portion of it. The MIT License is known for its permissiveness and is designed to allow developers the flexibility to use the code in various projects.
-
-## MIT License Summary:
 * **Permissions:** This software is free to use, modify, and distribute in both commercial and non-commercial projects.
 * **Conditions:** The license and copyright notice must be included in any copy or substantial portion of the software.
 * **Liability:** The software is provided "as is," without warranty of any kind.
