@@ -1,0 +1,29 @@
+[
+  {
+    "name": "English",
+    "image": "./r1.png"
+   
+   
+  },
+  {
+    "name": "Arabic",   
+    "image": "./r2.png"
+   
+  },
+  {
+    "name": "Devnagri",  
+    "image": "./r3.png"
+    
+  },
+  {
+    "name": "More Languages to come...",  
+    "image": "./r4.png"
+   
+  },
+  {
+    "name": "More Languages to come...",  
+    "image": "./r4.png"
+  
+  }
+
+]
