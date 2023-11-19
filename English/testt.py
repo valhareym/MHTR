@@ -26,14 +26,12 @@ if __name__ == "__main__":
     from tqdm import tqdm
     from mltu.configs import BaseModelConfigs
 
-    configs = BaseModelConfigs.load("configs.yaml")
+    configs = BaseModelConfigs.load("English\configs.yaml")
 
-    model = ImageToWordModel(model_path='model.onnx', char_list=configs.vocab)
-
-    df = pd.read_csv("val.csv").values.tolist()
+    model = ImageToWordModel(model_path='English\model.onnx', char_list=configs.vocab)
 
    
-    image_path = 'shi.png'
+    image_path = "English/3.png"
     image = cv2.imread(image_path)
 
     prediction_text = model.predict(image)

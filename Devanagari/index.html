@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devanagari Character Recognition</title>
+    <title>Devanagari Handwritten text Recognition</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,7 +23,7 @@
     </style>
 </head>
 <body>
-    <h1>Upload an Image for Devanagari Character Recognition</h1>
+    <h1>Upload an Image for Devanagari Handwritten text Recognition</h1>
     
     <input type="file" id="imageUpload" class="hidden" accept="image/*">
     <button onclick="document.getElementById('imageUpload').click()">Choose File</button>
@@ -35,7 +35,7 @@
         <img src="devan.jpg" alt="Example Image 3">
     </div>
     
-    <p>Predicted Character: <span id="predictionResult"></span></p>
+    <p>Predicted Text: <span id="predictionResult"></span></p>
 
     <script>
         document.getElementById('submitBtn').addEventListener('click', function() {

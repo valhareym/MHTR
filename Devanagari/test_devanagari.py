@@ -7,8 +7,8 @@ from tensorflow.keras.preprocessing.image import img_to_array, load_img
 model = load_model('Devanagari/devangiri.h5')
 devanagari_chars = [
     'ऀ', 'ँ', 'ं', 'ः',
-    'ऄ', 'अ', 'आ', 'इ', 'ई', 'उ', 'ऊ', 'ऋ','न', 'ऌ', 'ऍ', 'ऎ', 'ए', 'ऐ', 'ऑ', 'ऒ', 'ओ', 'औ', 
-    'क', 'ख', 'ग', 'घ', 'ङ', 'च', 'छ', 'ज', 'झ', 'ञ', 'ट', 'ठ', 'ड', 'ढ', 'ण', 'त', 'थ', 'द', 'ध', 'ऩ', 'प', 'फ', 'ब', 'भ', 'म', 'य', 'र', 'ऱ', 'ल', 'ळ', 'ऴ', 'व', 'श', 'ष', 'स', 'ह', 
+    'ऄ', 'अ', 'आ', 'इ', 'ई', 'उ', 'ध', 'ऋ','न', 'ऌ', 'ऍ', 'ऎ', 'ए', 'ऐ', 'ऑ', 'ऒ', 'ओ', 'औ', 
+    'क', 'ख', 'ग', 'घ', 'ङ', 'च', 'छ', 'ज', 'झ', 'ञ', 'ट', 'ठ', 'ड', 'ढ', 'ण', 'त', 'थ', 'द', 'ऊ', 'ऩ', 'प', 'फ', 'ब', 'भ', 'म', 'य', 'र', 'ऱ', 'ल', 'ळ', 'ऴ', 'व', 'श', 'ष', 'स', 'ह', 
     'ऺ','४', '०', '१', '२', '३', '५', '६', '७', '८', '९',
     'ई', '००',
     'ई', 'ऽ', 
@@ -49,10 +49,11 @@ def preprocess_image(image_path):
 
 # Example usage
 # Replace 'path/to/your/image.jpg' with the actual path to your image
-image_path = 'Devanagari/NA.jpg'
+image_path = 'Devanagari/let.jpg'
 preprocessed_image = preprocess_image(image_path)
 
 # Predict using the model
 predictions = model.predict(preprocessed_image)
 pin = argmax(predictions)
+print(pin)
 print(devanagari_chars[pin])

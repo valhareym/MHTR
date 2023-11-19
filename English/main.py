@@ -37,8 +37,8 @@ app = FastAPI()
 
 
 # Load model configurations and initialize model
-configs = BaseModelConfigs.load("English\configs.yaml")
-model = ImageToWordModel(model_path='English\model.onnx', char_list=configs.vocab)
+configs = BaseModelConfigs.load("configs.yaml")
+model = ImageToWordModel(model_path='model.onnx', char_list=configs.vocab)
 
 # CORS middleware to allow cross-origin requests (for local testing)
 app.add_middleware(
