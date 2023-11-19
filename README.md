@@ -1,38 +1,25 @@
 
 # Project Title
 
-# ScribbleSense: Multilingual Handwritten Text Recognition (MHTR)
+## ScribbleSense: Multilingual Handwritten Text Recognition
 
-## Project Description
-An Effective Measure of Recognition of Handwritten Multilingual Texts using **Convolutional Neural Networks**.
+## Introduction
+Our project is a cutting-edge Multilingual Handwritten Text Recognition (MHTR) system powered by advanced Machine Learning techniques. Leveraging the power of Convolutional Neural Networks (CNN), our solution excels in accurately transcribing handwritten text from diverse languages. The CNN architecture enables the model to learn intricate patterns and features inherent in handwritten scripts, making it robust and adaptable to various linguistic styles. Our system goes beyond language barriers, making it a versatile tool for recognizing and converting handwritten documents into machine-readable text. With a focus on precision and scalability, our project aims to revolutionize the way handwritten text is processed, opening up new possibilities for document digitization and language-agnostic text recognition.
 
-## Table of Contents
-* Features
+## Languages Supported
+MHTR extends its recognition capabilities to an array of languages, including but not limited to Devanagari, English, Gujarati, and Arabic. Each language module within the MHTR framework is fine-tuned with specialized datasets and scripts, ensuring optimal recognition accuracy. These datasets are meticulously curated to represent the intricate nuances of each language's script, thus enhancing the model's comprehension and transliteration capabilities.
 
-* UI
+## Architecture Overview
+The CNN architecture, integral to the MHTR model, is elaborated in various documentation and code notebooks. For instance, the Devanagari module's architecture is detailed in Devanagari/devnagiri_handwritten_Char.ipynb. This file provides insights into the convolutional layers, activation functions, and other architectural specifics that empower the model's script recognition efficiency.
 
-* Contributing
-
-* License
-
-# Features 
-Our project is a cutting-edge Multilingual Handwritten Text Recognition (HTR) system powered by advanced Machine Learning techniques. Leveraging the power of Convolutional Neural Networks (CNN), our solution excels in accurately transcribing handwritten text from diverse languages. The CNN architecture enables the model to learn intricate patterns and features inherent in handwritten scripts, making it robust and adaptable to various linguistic styles. Our system goes beyond language barriers, making it a versatile tool for recognizing and converting handwritten documents into machine-readable text. With a focus on precision and scalability, our project aims to revolutionize the way handwritten text is processed, opening up new possibilities for document digitization and language-agnostic text recognition.
-
-### Key Features:
- * **Multilingual Capabilities**: Recognize handwritten text across a spectrum of languages and writing systems.
-
- * **Cutting-Edge Technology**: Leverage the strength of Convolutional Neural Networks for accurate and adaptive text recognition.
-
-  * **Versatile Applications**: From Latin-based scripts to ideographic languages, ScribbleSense adapts to diverse linguistic contexts.
-
- Experience the future of document digitization and explore the limitless potential of multilingual handwritten text recognition with ScribbleSense!
+## Ensemble Technique
+MHTR incorporates a novel ensemble technique, dubbed the "boating technique," which synergistically combines multiple model predictions to boost overall accuracy and performance. This technique involves aggregating outputs from various model instances, each trained on slightly different data variations or architectures, thereby increasing the robustness and reliability of the final prediction.
 
 # UI
 
 ![Home](https://github.com/devdeep2003/Hackathon-GFG-VIT-AP/assets/138110636/3dffebb4-3888-4c11-97d7-754aeaadfbdd)
 
 
-Welcome to ScribbleSense, a powerful Multilingual Handwritten Text Recognition (HTR) system designed to transcribe handwritten text from diverse languages. Leveraging advanced Machine Learning techniques, including Convolutional Neural Networks (CNN), ScribbleSense excels in accurately converting handwritten documents into machine-readable text. Whether it's Latin-based scripts, ideographic languages, or any other writing system, ScribbleSense is built to overcome language barriers, providing a versatile and robust solution for handwritten text recognition. Revolutionize your document digitization process with ScribbleSense, making handwritten text accessible and searchable across multilingual contexts.
 
 Discover the seamless intersection of advanced technology and user-friendly design at ScribbleSense! Our homepage is crafted with you in mind, providing an intuitive and accessible gateway to Multilingual Handwritten Text Recognition (HTR). Say goodbye to complexity and hello to a delightful experience as you explore the following features:
 
@@ -161,6 +148,7 @@ ScribbleSense is crafted by a dedicated team of developers:
 * Shreyas S
 * Deep Chakraborty
 
+
 # Contributing to ScribbleSense
 
 Thank you for considering contributing to ScribbleSense! We welcome contributions from the community to help us improve and expand our Multilingual Handwritten Text Recognition (HTR) platform.
@@ -205,6 +193,14 @@ ScribbleSense is distributed under the MIT License. This means you are free to u
 * **Liability:** The software is provided "as is," without warranty of any kind.
 By contributing to or using ScribbleSense, you agree to abide by the terms of the MIT License.
   
+Thank you for being a part of the ScribbleSense community!
+
+
+
+
+
+
+
 
 
 
