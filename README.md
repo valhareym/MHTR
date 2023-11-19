@@ -160,7 +160,6 @@ ScribbleSense is crafted by a dedicated team of developers:
 * Varanasi Aditya Sai
 * Shreyas S
 * Deep Chakraborty
-* Harshvardhan Singh
 
 # Contributing to ScribbleSense
 
