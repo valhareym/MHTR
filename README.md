@@ -1,7 +1,6 @@
 
-# Project Title
 
-## ScribbleSense: Multilingual Handwritten Text Recognition
+# ScribbleSense: Multilingual Handwritten Text Recognition
 
 ## Introduction
 Our project is a cutting-edge Multilingual Handwritten Text Recognition (MHTR) system powered by advanced Machine Learning techniques. Leveraging the power of Convolutional Neural Networks (CNN), our solution excels in accurately transcribing handwritten text from diverse languages. The CNN architecture enables the model to learn intricate patterns and features inherent in handwritten scripts, making it robust and adaptable to various linguistic styles. Our system goes beyond language barriers, making it a versatile tool for recognizing and converting handwritten documents into machine-readable text. With a focus on precision and scalability, our project aims to revolutionize the way handwritten text is processed, opening up new possibilities for document digitization and language-agnostic text recognition.
